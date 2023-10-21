@@ -1,0 +1,72 @@
+.is-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.breed-select {
+    display: none;
+    max-width: 400px;
+    margin: auto;
+}
+.cat-info {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #e5f3f2;
+    border: 1px solid #0d161b;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: rgb(5, 226, 97);
+    animation: fadeIn 1s ease;
+}
+.error {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    color: rgb(255, 0, 0);
+    animation: fadeIn 1s ease;
+}
+.title {
+    display: flex;
+    color: rgb(241, 121, 7);
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 900;
+    animation: fadeIn 1s ease;
+}
+.text {
+    display: flex;
+    justify-content: start;
+    margin-top: 10px;
+    font-size: 20px;
+    animation: fadeIn 1s ease;
+}
+
+.span-text {
+    margin-top: 30px;
+    animation: fadeIn 1s ease;
+}
