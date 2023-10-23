@@ -49,6 +49,7 @@ h1 {
     background-size: 2px 40px;
     background-position: 50% 0px;
     animation: spinx 5s linear infinite;
+    margin: 0 auto;
 }
 
 .loader:before,
