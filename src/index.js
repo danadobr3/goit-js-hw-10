@@ -36,7 +36,7 @@ selector.addEventListener('change', onSelectBreed);
 function onSelectBreed(event) {
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
-    divCatInfo.classList.add('is-hidden');
+    divCatInformation.classList.add('is-hidden');
 
     const breedId = event.currentTarget.value;
     fetchCatByBreed(breedId)
@@ -45,8 +45,8 @@ function onSelectBreed(event) {
         selector.classList.remove('is-hidden');
         const { url, breeds } = data[0];
         
-        divCatInfo.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`
-        divCatInfo.classList.remove('is-hidden');
+        divCatInformation.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`
+        divCatInformation.classList.remove('is-hidden');
     })
     .catch(onFetchError);
 };
