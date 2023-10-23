@@ -52,6 +52,7 @@ function onSelectBreed(event) {
 };
 
 function onFetchError(error) {
+     console.error('Error status:', error.status);
     selector.classList.remove('is-hidden');
     loader.classList.replace('loader', 'is-hidden');
 
