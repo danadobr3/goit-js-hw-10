@@ -16,7 +16,7 @@ const { selector, divCatInformation, loader, error } = ref;
 
 loader.classList.add('is-hidden');
 selector.classList.remove('is-hidden');
-divCatInfo.classList.remove('is-hidden');
+divCatInformation.classList.remove('is-hidden');
 
 
 let arrBreedsId = [];
