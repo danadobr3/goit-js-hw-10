@@ -26,7 +26,7 @@ fetchBreeds()
         new SlimSelect({
             select: selector,
             data: arrBreedsId,
-            placeholder: 'Select a breed',
+            placeholder: '',
         });
     })
     .catch(onFetchError);
