@@ -27,6 +27,7 @@ fetchBreeds()
             select: selector,
             data: arrBreedsId,
             placeholder: '',
+            search: false,
         });
     })
     .catch(onFetchError);
