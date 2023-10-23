@@ -1,5 +1,4 @@
-import { fetchBreeds, fetchCatByBreed } from "./cat-api";
-import './styles.css';
+import { fetchBreeds, fetchCatByBreed } from "./js/cat-api";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select'
 import 'slim-select/dist/slimselect.css';
@@ -15,7 +14,6 @@ const { selector, divCatInformation, loader, error } = ref;
 
 
 loader.classList.add('is-hidden');
-selector.classList.remove('is-hidden');
 divCatInformation.classList.remove('is-hidden');
 
 
@@ -27,18 +25,25 @@ fetchBreeds()
         });
         new SlimSelect({
             select: selector,
-            data: arrBreedsId
+            data: arrBreedsId,
+            placeholder: 'Select a breed',
         });
     })
     .catch(onFetchError);
 selector.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
+    const selectedValue = event.currentTarget.value;
+
+    if (!selectedValue) {
+        return;
+    }
+    
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
     divCatInformation.classList.add('is-hidden');
 
-    const breedId = event.currentTarget.value;
+    const breedId = selectedValue;
     fetchCatByBreed(breedId)
     .then(data => {
         loader.classList.replace('loader', 'is-hidden');
@@ -52,8 +57,10 @@ function onSelectBreed(event) {
 };
 
 function onFetchError(error) {
-    selector.classList.remove('is-hidden');
+    selector.classList.add('is-hidden');
     loader.classList.replace('loader', 'is-hidden');
+    divCatInformation.classList.add('is-hidden');
+    error.classList.add('is-hidden');
 
     Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!', {
         position: 'center-center',
