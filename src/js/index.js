@@ -35,17 +35,12 @@ fetchBreeds()
 selector.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
-    const selectedValue = event.currentTarget.value;
-
-    if (!selectedValue) {
-        return;
-    }
-    
+  
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
     divCatInformation.classList.add('is-hidden');
 
-    const breedId = selectedValue;
+    const breedId = event.currentTarget.value;
     fetchCatByBreed(breedId)
     .then(data => {
         loader.classList.replace('loader', 'is-hidden');
