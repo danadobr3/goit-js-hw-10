@@ -61,7 +61,9 @@ function onFetchError(error) {
     selector.classList.remove('is-hidden');
     loader.classList.replace('loader', 'is-hidden');
     divCatInformation.classList.add('is-hidden');
-    error.classList.remove('is-hidden');
+     if (error) {
+        error.classList.remove('is-hidden');
+    }
     
 
     Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!', {
